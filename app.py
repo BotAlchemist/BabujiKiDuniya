@@ -51,6 +51,7 @@ if i_page== 'Home':
     "BABUJI'S PARIS DECLARATION" indicates his future plan of Mission's work. 
     And "BABUJI'S Universe" where in religion and spirituality have been described as 
     the MASTER described which has been recorded by one of our organisers Shri U.N. Poddar, for the readers' interest. 
+    
     	My father is very grateful to shri Raghavendra Rao and Shri Khoosalbhai Patel for their inspiring letters enabling him to compile this book.
 
                                             					DR. RAMESH KUMAR SAXENA, 
@@ -63,7 +64,7 @@ if i_page== 'Home':
    
     
     page_context = GoogleTranslator(source='en', target= i_lang).translate(page_context)
-    st.text(page_context)
+    st.markdown(page_context)
     
     if play_button:
         output= gTTS(text= page_context, lang= i_lang)
