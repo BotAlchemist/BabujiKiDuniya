@@ -35,8 +35,8 @@ if i_page== 'Home':
         i_lang='hi'
     
     
-    col2.markdown('##')
-    play_button = col2.button("Play")
+    #col2.markdown('##')
+    #play_button = col2.button("Play")
     
     
     
@@ -142,8 +142,8 @@ if i_page== 'Home':
     #page_context = GoogleTranslator(source='en', target= i_lang).translate(page_context)
     st.text(page_context)
     
-    if play_button:
-        PlayAudio.save_audio(page_context, 'a_word', i_lang)
+    #if play_button:
+        #PlayAudio.save_audio(page_context, 'a_word', i_lang)
         
    
     #filename= 'audio/' + 'a_word_'+ i_lang + '.mp3'
@@ -159,7 +159,10 @@ if i_page== 'Chapters':
         i_lang='en'
     elif i_lang== 'Hindi':
         i_lang='hi'
-    i_chapter= st.selectbox("Chapter", ['The Goal of life', 'Sadhna'])
+    i_chapter= st.selectbox("Chapter", ['The Goal of life', 
+                                        'Sadhna', 
+                                        'Practice of medidation for beginners', 
+                                        'Ten commandments of Sahaj Marg'])
     
     if i_chapter == 'The Goal of life':
         audio_bytes= PlayAudio.play_sound('goal_of_life', i_lang)
@@ -169,21 +172,53 @@ if i_page== 'Chapters':
         
         st.text(page_context)
         
-        play_button = st.button("Play")
-        if play_button:
-            PlayAudio.save_audio(page_context, 'goal_of_life', i_lang)
+        # play_button = st.button("Play")
+        # if play_button:
+        #     PlayAudio.save_audio(page_context, 'goal_of_life', i_lang)
             
     elif i_chapter == 'Sadhna': 
         page_context= Chapters.chapter_sadhna(i_lang)
         
-        st.text(page_context)
-        
-        play_button = st.button("Play")
-        if play_button:
-            PlayAudio.save_audio(page_context, i_chapter, i_lang)
-            
         audio_bytes= PlayAudio.play_sound(i_chapter, i_lang)
         st.audio(audio_bytes, format='audio/mp3')
+        
+        
+        st.text(page_context)
+        
+        # play_button = st.button("Play")
+        # if play_button:
+        #     PlayAudio.save_audio(page_context, i_chapter, i_lang)
+            
+       
+        
+    elif i_chapter == 'Practice of medidation for beginners':
+        page_context= Chapters.chapter_practiice_meditation(i_lang)
+        
+        audio_bytes= PlayAudio.play_sound(i_chapter, i_lang)
+        st.audio(audio_bytes, format='audio/mp3')
+        
+        st.text(page_context)
+        
+        # play_button = st.button("Play")
+        # if play_button:
+        #     PlayAudio.save_audio(page_context, i_chapter, i_lang)
+            
+        
+        
+        
+    elif i_chapter == 'Ten commandments of Sahaj Marg':
+        page_context= Chapters.chapter_ten_commandments(i_lang)
+        
+        audio_bytes= PlayAudio.play_sound(i_chapter, i_lang)
+        st.audio(audio_bytes, format='audio/mp3')
+        st.text(page_context)
+        
+        # play_button = st.button("Play")
+        # if play_button:
+        #     PlayAudio.save_audio(page_context, i_chapter, i_lang)
+            
+        
+        
         
         
         
